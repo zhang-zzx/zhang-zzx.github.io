@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>SpringBoot整合Web开发---使用 Gson 处理 JSON | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="主题：Gson与SpringBoot的整合">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot整合Web开发---使用 Gson 处理 JSON">
+<meta property="og:url" content="http://yoursite.com/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E4%BD%BF%E7%94%A8-Gson-%E5%A4%84%E7%90%86-JSON/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="主题：Gson与SpringBoot的整合">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200420225328993.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5MTU5NzA3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200420225344688.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5MTU5NzA3,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-04-23T12:41:51.000Z">
+<meta property="article:modified_time" content="2020-04-23T12:42:45.658Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200420225328993.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5MTU5NzA3,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,211 +157,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-SpringBoot整合Web开发-两种方式自定义静态资源位置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-SpringBoot整合Web开发-使用-Gson-处理-JSON" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F%E8%87%AA%E5%AE%9A%E4%B9%89%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E4%BD%8D%E7%BD%AE/">SpringBoot整合Web开发---两种方式自定义静态资源位置</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F%E8%87%AA%E5%AE%9A%E4%B9%89%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E4%BD%8D%E7%BD%AE/" class="archive-article-date">
-  	<time datetime="2020-04-23T12:45:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h6 id="问题：如果不想用系统提供的静态资源访问的路径，如何自定义路径？"><a href="#问题：如果不想用系统提供的静态资源访问的路径，如何自定义路径？" class="headerlink" title="问题：如果不想用系统提供的静态资源访问的路径，如何自定义路径？"></a>问题：如果不想用系统提供的静态资源访问的路径，如何自定义路径？</h6>
-        
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F%E8%87%AA%E5%AE%9A%E4%B9%89%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E4%BD%8D%E7%BD%AE/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F%E8%87%AA%E5%AE%9A%E4%B9%89%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E4%BD%8D%E7%BD%AE/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SpringBoot整合Web开发-默认的静态资源访问方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E9%BB%98%E8%AE%A4%E7%9A%84%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E8%AE%BF%E9%97%AE%E6%96%B9%E6%A1%88/">SpringBoot整合Web开发---默认的静态资源访问方案</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E9%BB%98%E8%AE%A4%E7%9A%84%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E8%AE%BF%E9%97%AE%E6%96%B9%E6%A1%88/" class="archive-article-date">
-  	<time datetime="2020-04-23T12:44:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>当我们使用 SpringMVC 框架时，静态资源会被拦截，需要添加额外配置</p>
-        
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E9%BB%98%E8%AE%A4%E7%9A%84%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E8%AE%BF%E9%97%AE%E6%96%B9%E6%A1%88/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E9%BB%98%E8%AE%A4%E7%9A%84%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E8%AE%BF%E9%97%AE%E6%96%B9%E6%A1%88/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SpringBoot整合Web开发-整合Fastjson" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E6%95%B4%E5%90%88Fastjson/">SpringBoot整合Web开发---整合Fastjson</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E6%95%B4%E5%90%88Fastjson/" class="archive-article-date">
-  	<time datetime="2020-04-23T12:43:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Gson和Json在springboot中都有自动化配置的依赖，FastJson没有，需要自己来配置Converter。</p>
-        
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E6%95%B4%E5%90%88Fastjson/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E6%95%B4%E5%90%88Fastjson/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SpringBoot整合Web开发-使用-Gson-处理-JSON" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E4%BD%BF%E7%94%A8-Gson-%E5%A4%84%E7%90%86-JSON/">SpringBoot整合Web开发---使用 Gson 处理 JSON</a>
+    <h1 class="article-title" itemprop="name">
+      SpringBoot整合Web开发---使用 Gson 处理 JSON
     </h1>
   
 
@@ -367,12 +177,38 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="主题：Gson与SpringBoot的整合"><a href="#主题：Gson与SpringBoot的整合" class="headerlink" title="主题：Gson与SpringBoot的整合"></a>主题：Gson与SpringBoot的整合</h4>
-        
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E4%BD%BF%E7%94%A8-Gson-%E5%A4%84%E7%90%86-JSON/#more">more >></a>
-        
+        <h4 id="主题：Gson与SpringBoot的整合"><a href="#主题：Gson与SpringBoot的整合" class="headerlink" title="主题：Gson与SpringBoot的整合"></a>主题：Gson与SpringBoot的整合</h4><a id="more"></a>
+
+<h3 id="1-在Web依赖中排除Json，添加Gson"><a href="#1-在Web依赖中排除Json，添加Gson" class="headerlink" title="(1)在Web依赖中排除Json，添加Gson"></a>(1)在Web依赖中排除Json，添加Gson</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">            &lt;exclusions&gt;</span><br><span class="line">                &lt;exclusion&gt;</span><br><span class="line">                    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">                    &lt;artifactId&gt;spring-boot-starter-json&lt;/artifactId&gt;</span><br><span class="line">                &lt;/exclusion&gt;</span><br><span class="line">        &lt;/exclusions&gt;</span><br><span class="line"> &lt;/dependency&gt;</span><br><span class="line"> </span><br><span class="line"> &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;com.google.code.gson&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;gson&lt;/artifactId&gt;</span><br><span class="line">            &lt;!--不需要写版本号，已经纳入parent里面了--&gt;</span><br><span class="line"> &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="运行项目后，效果如下："><a href="#运行项目后，效果如下：" class="headerlink" title="运行项目后，效果如下："></a>运行项目后，效果如下：</h5><p><img src="https://img-blog.csdnimg.cn/20200420225328993.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5MTU5NzA3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h5 id="项目中只要加了Gson依赖就会自动化配置"><a href="#项目中只要加了Gson依赖就会自动化配置" class="headerlink" title="项目中只要加了Gson依赖就会自动化配置"></a>项目中只要加了Gson依赖就会自动化配置</h5><h3 id="2-自己提供一个GsonConventer"><a href="#2-自己提供一个GsonConventer" class="headerlink" title="(2)自己提供一个GsonConventer"></a>(2)自己提供一个GsonConventer</h3><h5 id="在WebMvcConfig类中添加一个GsonMessageConverter的Bean对象"><a href="#在WebMvcConfig类中添加一个GsonMessageConverter的Bean对象" class="headerlink" title="在WebMvcConfig类中添加一个GsonMessageConverter的Bean对象"></a>在WebMvcConfig类中添加一个GsonMessageConverter的Bean对象</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function">GsonHttpMessageConverter <span class="title">gsonHttpMessageConverter</span><span class="params">()</span></span>&#123;</span><br><span class="line">    GsonHttpMessageConverter converter = <span class="keyword">new</span> GsonHttpMessageConverter();</span><br><span class="line">    converter.setGson(<span class="keyword">new</span> GsonBuilder().setDateFormat(<span class="string">"yyyy/MM/dd"</span>).create());</span><br><span class="line">    <span class="keyword">return</span> converter;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="日期类转换后效果："><a href="#日期类转换后效果：" class="headerlink" title="日期类转换后效果："></a>日期类转换后效果：</h5><p><img src="https://img-blog.csdnimg.cn/20200420225344688.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5MTU5NzA3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h5 id="不用Converter的做法："><a href="#不用Converter的做法：" class="headerlink" title="不用Converter的做法："></a>不用Converter的做法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;将原来的Converter注释</span><br><span class="line">@Bean</span><br><span class="line">Gson gson()&#123;    </span><br><span class="line">return new GsonBuilder().setDateFormat(&quot;yyyy&#x2F;MM&#x2F;dd&quot;).create();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -381,16 +217,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E4%BD%BF%E7%94%A8-Gson-%E5%A4%84%E7%90%86-JSON/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E4%BD%BF%E7%94%A8-Gson-%E5%A4%84%E7%90%86-JSON/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E6%95%B4%E5%90%88Fastjson/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          SpringBoot整合Web开发---整合Fastjson
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-SpringBoot%E9%BB%98%E8%AE%A4%E7%9A%84-JSON-%E8%A7%A3%E6%9E%90%E6%96%B9%E6%A1%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SpringBoot整合Web开发---SpringBoot默认的 JSON 解析方案</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -410,405 +314,14 @@
 
 
 
-
-  
-    <article id="post-SpringBoot整合Web开发-SpringBoot默认的-JSON-解析方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-SpringBoot%E9%BB%98%E8%AE%A4%E7%9A%84-JSON-%E8%A7%A3%E6%9E%90%E6%96%B9%E6%A1%88/">SpringBoot整合Web开发---SpringBoot默认的 JSON 解析方案</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-SpringBoot%E9%BB%98%E8%AE%A4%E7%9A%84-JSON-%E8%A7%A3%E6%9E%90%E6%96%B9%E6%A1%88/" class="archive-article-date">
-  	<time datetime="2020-04-23T12:40:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>主题：在SpringBoot中如何返回Json数据。</p>
-</li>
-<li>
-        
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-SpringBoot%E9%BB%98%E8%AE%A4%E7%9A%84-JSON-%E8%A7%A3%E6%9E%90%E6%96%B9%E6%A1%88/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-SpringBoot%E9%BB%98%E8%AE%A4%E7%9A%84-JSON-%E8%A7%A3%E6%9E%90%E6%96%B9%E6%A1%88/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SpringBoot整合视图层技术-Freemarker" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88%E8%A7%86%E5%9B%BE%E5%B1%82%E6%8A%80%E6%9C%AF-Freemarker/">SpringBoot整合视图层技术---Freemarker</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88%E8%A7%86%E5%9B%BE%E5%B1%82%E6%8A%80%E6%9C%AF-Freemarker/" class="archive-article-date">
-  	<time datetime="2020-04-23T12:39:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Freemarker</p>
-        
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88%E8%A7%86%E5%9B%BE%E5%B1%82%E6%8A%80%E6%9C%AF-Freemarker/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88%E8%A7%86%E5%9B%BE%E5%B1%82%E6%8A%80%E6%9C%AF-Freemarker/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SpringBoot基础配置-Profile" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-Profile/">SpringBoot基础配置---Profile</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-Profile/" class="archive-article-date">
-  	<time datetime="2020-04-23T12:38:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>前言：开发有开发环境，测试有测试环境，每个环境中连接可能不太一样。例如数据库，开发完以后上测试，需要修改数据库信息。测试完部署，还需要修改数据库信息。除此之外还有Radis、mangodb等一堆配置，每次都要修改。Spring中可以通过Profile解决问题，Profile是条件注解的一个特殊化。SpringBoot对此做了继承，并且简化了。</p>
-        
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-Profile/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-Profile/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SpringBoot基础配置-YML配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-YML%E9%85%8D%E7%BD%AE/">SpringBoot基础配置---YML配置</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-YML%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-  	<time datetime="2020-04-23T12:37:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>前言：properties配置有一点臃肿，目前在SpringBoot中流行yaml配置</p>
-        
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-YML%E9%85%8D%E7%BD%AE/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-YML%E9%85%8D%E7%BD%AE/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SpringBoot基础配置-类型安全的属性注入" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-%E7%B1%BB%E5%9E%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%B1%9E%E6%80%A7%E6%B3%A8%E5%85%A5/">SpringBoot基础配置---类型安全的属性注入</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-%E7%B1%BB%E5%9E%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%B1%9E%E6%80%A7%E6%B3%A8%E5%85%A5/" class="archive-article-date">
-  	<time datetime="2020-04-23T12:36:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>前言：上一节中的注入均为Spring提供，这一部分将体现SpringBoot的价值所在—类型安全的属性注入。</p>
-        
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-%E7%B1%BB%E5%9E%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%B1%9E%E6%80%A7%E6%B3%A8%E5%85%A5/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-%E7%B1%BB%E5%9E%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%B1%9E%E6%80%A7%E6%B3%A8%E5%85%A5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SpringBoot基础配置-Spring属性注入" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-Spring%E5%B1%9E%E6%80%A7%E6%B3%A8%E5%85%A5/">SpringBoot基础配置---Spring属性注入</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-Spring%E5%B1%9E%E6%80%A7%E6%B3%A8%E5%85%A5/" class="archive-article-date">
-  	<time datetime="2020-04-23T12:34:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>前言：Spring里面是有属性注入的，例如数据库的配置。一般数据库配置不会写在XML里面，而是做一个DB.properties文件，在里面定义用户的用户名、密码、连接地址等信息，定义好再用XML引入信息。这是一个在XML中做属性注入的例子。除了XML，也可以在JAVA代码中做。</p>
-        
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-Spring%E5%B1%9E%E6%80%A7%E6%B3%A8%E5%85%A5/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-Spring%E5%B1%9E%E6%80%A7%E6%B3%A8%E5%85%A5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -831,8 +344,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

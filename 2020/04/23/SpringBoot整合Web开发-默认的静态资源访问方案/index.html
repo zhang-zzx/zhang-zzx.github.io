@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>SpringBoot整合Web开发---默认的静态资源访问方案 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="当我们使用 SpringMVC 框架时，静态资源会被拦截，需要添加额外配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot整合Web开发---默认的静态资源访问方案">
+<meta property="og:url" content="http://yoursite.com/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E9%BB%98%E8%AE%A4%E7%9A%84%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E8%AE%BF%E9%97%AE%E6%96%B9%E6%A1%88/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="当我们使用 SpringMVC 框架时，静态资源会被拦截，需要添加额外配置">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190404091554533.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly93YW5nc29uZy5ibG9nLmNzZG4ubmV0,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-04-23T12:44:36.000Z">
+<meta property="article:modified_time" content="2020-04-23T12:55:45.599Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190404091554533.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly93YW5nc29uZy5ibG9nLmNzZG4ubmV0,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,81 +156,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-SpringBoot整合Web开发-两种方式自定义静态资源位置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-SpringBoot整合Web开发-默认的静态资源访问方案" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F%E8%87%AA%E5%AE%9A%E4%B9%89%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E4%BD%8D%E7%BD%AE/">SpringBoot整合Web开发---两种方式自定义静态资源位置</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F%E8%87%AA%E5%AE%9A%E4%B9%89%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E4%BD%8D%E7%BD%AE/" class="archive-article-date">
-  	<time datetime="2020-04-23T12:45:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h6 id="问题：如果不想用系统提供的静态资源访问的路径，如何自定义路径？"><a href="#问题：如果不想用系统提供的静态资源访问的路径，如何自定义路径？" class="headerlink" title="问题：如果不想用系统提供的静态资源访问的路径，如何自定义路径？"></a>问题：如果不想用系统提供的静态资源访问的路径，如何自定义路径？</h6>
-        
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F%E8%87%AA%E5%AE%9A%E4%B9%89%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E4%BD%8D%E7%BD%AE/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F%E8%87%AA%E5%AE%9A%E4%B9%89%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E4%BD%8D%E7%BD%AE/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SpringBoot整合Web开发-默认的静态资源访问方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E9%BB%98%E8%AE%A4%E7%9A%84%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E8%AE%BF%E9%97%AE%E6%96%B9%E6%A1%88/">SpringBoot整合Web开发---默认的静态资源访问方案</a>
+    <h1 class="article-title" itemprop="name">
+      SpringBoot整合Web开发---默认的静态资源访问方案
     </h1>
   
 
@@ -238,11 +177,75 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>当我们使用 SpringMVC 框架时，静态资源会被拦截，需要添加额外配置</p>
-        
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E9%BB%98%E8%AE%A4%E7%9A%84%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E8%AE%BF%E9%97%AE%E6%96%B9%E6%A1%88/#more">more >></a>
-        
+<a id="more"></a>
+
+<p>推荐文章:<a href="https://www.cnblogs.com/lenve/p/10653003.html" target="_blank" rel="noopener">https://www.cnblogs.com/lenve/p/10653003.html</a></p>
+<h3 id="SSM-中的配置"><a href="#SSM-中的配置" class="headerlink" title="SSM 中的配置"></a>SSM 中的配置</h3><p>要讲 Spring Boot 中的问题，我们得先回到 SSM 环境搭建中，一般来说，我们可以通过 <code>&lt;mvc:resources /&gt;</code> 节点来配置不拦截静态资源，如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mvc:resources</span> <span class="attr">mapping</span>=<span class="string">"/js/**"</span> <span class="attr">location</span>=<span class="string">"/js/"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:resources</span> <span class="attr">mapping</span>=<span class="string">"/css/**"</span> <span class="attr">location</span>=<span class="string">"/css/"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:resources</span> <span class="attr">mapping</span>=<span class="string">"/html/**"</span> <span class="attr">location</span>=<span class="string">"/html/"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>由于这是一种Ant风格的路径匹配符，<code>/**</code> 表示可以匹配任意层级的路径，因此上面的代码也可以像下面这样简写：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mvc:resources</span> <span class="attr">mapping</span>=<span class="string">"/**"</span> <span class="attr">location</span>=<span class="string">"/"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这种配置是在 XML 中的配置，大家知道，SpringMVC 的配置除了在XML中配置，也可以在 Java 代码中配置，如果在Java代码中配置的话，我们只需要自定义一个类，继承自WebMvcConfigurationSupport即可：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ComponentScan</span>(basePackages = <span class="string">"org.sang.javassm"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringMVCConfig</span> <span class="keyword">extends</span> <span class="title">WebMvcConfigurationSupport</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">addResourceHandlers</span><span class="params">(ResourceHandlerRegistry registry)</span> </span>&#123;</span><br><span class="line">        registry.addResourceHandler(<span class="string">"/**"</span>).addResourceLocations(<span class="string">"/"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>重写 WebMvcConfigurationSupport 类中的addResourceHandlers方法，在该方法中配置静态资源位置即可，这里的含义和上面 xml 配置的含义一致，因此无需多说。<br>这是我们传统的解决方案，在Spring Boot 中，其实配置方式和这个一脉相承，只是有一些自动化的配置了。</p>
+<h2 id="Spring-Boot-中的配置"><a href="#Spring-Boot-中的配置" class="headerlink" title="Spring Boot 中的配置"></a>Spring Boot 中的配置</h2><p>在 Spring Boot 中，如果我们是从 <code>https://start.spring.io</code> 这个网站上创建的项目，或者使用 IntelliJ IDEA 中的 Spring Boot 初始化工具创建的项目，默认都会存在 resources/static 目录，很多小伙伴也知道静态资源只要放到这个目录下，就可以直接访问，除了这里还有没有其他可以放静态资源的位置呢？为什么放在这里就能直接访问了呢？这就是本文要讨论的问题了。</p>
+<h3 id="整体规划"><a href="#整体规划" class="headerlink" title="整体规划"></a>整体规划</h3><p>首先，在 Spring Boot 中，默认情况下，一共有5个位置可以放静态资源，五个路径分别是如下5个：</p>
+<ol>
+<li>classpath:/META-INF/resources/</li>
+<li>classpath:/resources/</li>
+<li>classpath:/static/</li>
+<li>classpath:/public/</li>
+<li>/</li>
+</ol>
+<p>前四个目录好理解，分别对应了resources目录下不同的目录，第5个 <code>/</code> 是啥意思呢？我们知道，在 Spring Boot 项目中，默认是没有 webapp 这个目录的，当然我们也可以自己添加（例如在需要使用JSP的时候），这里第5个 <code>/</code> 其实就是表示 webapp 目录中的静态资源也不被拦截。如果同一个文件分别出现在五个目录下，那么优先级也是按照上面列出的顺序。</p>
+<p>不过，虽然有5个存储目录，除了第5个用的比较少之外，其他四个，系统默认创建了 <code>classpath:/static/</code> ， 正常情况下，我们只需要将我们的静态资源放到这个目录下即可，也不需要额外去创建其他静态资源目录，例如我在 <code>classpath:/static/</code> 目录下放了一张名为1.png 的图片，那么我的访问路径是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;localhost:8080&#x2F;1.png</span><br></pre></td></tr></table></figure>
+
+<p>这里大家注意，请求地址中并不需要 static，如果加上了static反而多此一举会报404错误。很多人会觉得奇怪，为什么不需要添加 static呢？资源明明放在 static 目录下。其实这个效果很好实现，例如在SSM配置中，我们的静态资源拦截配置如果是下面这样：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mvc:resources</span> <span class="attr">mapping</span>=<span class="string">"/**"</span> <span class="attr">location</span>=<span class="string">"/static/"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果我们是这样配置的话，请求地址如果是 <code>http://localhost:8080/1.png</code> 实际上系统会去 <code>/static/1.png</code> 目录下查找相关的文件。</p>
+<p>所以我们理所当然的猜测，在 Spring Boot 中可能也是类似的配置。</p>
+<h3 id="源码解读"><a href="#源码解读" class="headerlink" title="源码解读"></a>源码解读</h3><p>胡适之先生说：“大胆猜想，小心求证”，我们这里就通过源码解读来看看 Spring Boot 中的静态资源到底是怎么配置的。</p>
+<p>首先我们在 WebMvcAutoConfiguration 类中看到了 SpringMVC 自动化配置的相关的内容，找到了静态资源拦截的配置，如下：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190404091554533.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly93YW5nc29uZy5ibG9nLmNzZG4ubmV0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>可以看到这里静态资源的定义和我们前面提到的Java配置SSM中的配置非常相似，其中，this.mvcProperties.getStaticPathPattern() 方法对应的值是 “/**”，this.resourceProperties.getStaticLocations()方法返回了四个位置，分别是：”classpath:/META-INF/resources/“, “classpath:/resources/“,”classpath:/static/“, “classpath:/public/“，然后在getResourceLocations方法中，又添加了“/”，因此这里返回值一共有5个。其中，/表示webapp目录，即webapp中的静态文件也可以直接访问。静态资源的匹配路径按照定义路径优先级依次降低。因此这里的配置和我们前面提到的如出一辙。这样大伙就知道了为什么Spring Boot 中支持5个静态资源位置，同时也明白了为什么静态资源请求路径中不需要<code>/static</code>，因为在路径映射中已经自动的添加上了<code>/static</code>了。</p>
+<h3 id="自定义配置"><a href="#自定义配置" class="headerlink" title="自定义配置"></a>自定义配置</h3><p>当然，这个是系统默认配置，如果我们并不想将资源放在系统默认的这五个位置上，也可以自定义静态资源位置和映射，自定义的方式也有两种，可以通过 application.properties 来定义，也可以在 Java 代码中来定义，下面分别来看。</p>
+<h4 id="application-properties"><a href="#application-properties" class="headerlink" title="application.properties"></a>application.properties</h4><p>在配置文件中定义的方式比较简单，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">spring.resources.static-locations&#x3D;classpath:&#x2F;</span><br><span class="line">spring.mvc.static-path-pattern&#x3D;&#x2F;**</span><br></pre></td></tr></table></figure>
+
+<p>第一行配置表示定义资源位置，第二行配置表示定义请求 URL 规则。以上文的配置为例，如果我们这样定义了，表示可以将静态资源放在 resources目录下的任意地方，我们访问的时候当然也需要写完整的路径，例如在resources/static目录下有一张名为1.png 的图片，那么访问路径就是 <code>http://localhost:8080/static/1.png</code> ,注意此时的static不能省略。</p>
+<h4 id="Java-代码定义"><a href="#Java-代码定义" class="headerlink" title="Java 代码定义"></a>Java 代码定义</h4><p>当然，在Spring Boot中我们也可以通过 Java代码来自定义，方式和 Java 配置的 SSM 比较类似，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebMVCConfig</span> <span class="keyword">implements</span> <span class="title">WebMvcConfigurer</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addResourceHandlers</span><span class="params">(ResourceHandlerRegistry registry)</span> </span>&#123;</span><br><span class="line">        registry.addResourceHandler(<span class="string">"/**"</span>).addResourceLocations(<span class="string">"classpath:/aaa/"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里代码基本和前面一致，比较简单，不再赘述。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这里需要提醒大家的是，松哥见到有很多人用了 Thymeleaf 之后，会将静态资源也放在 resources/templates 目录下，注意，templates 目录并不是静态资源目录，它是一个放页面模板的位置（你看到的 Thymeleaf 模板虽然后缀为 .html，其实并不是静态资源）。好了，通过上面的讲解，相信大家对 Spring Boot 中静态资源的位置有一个深刻了解了，应该不会再在项目中出错了吧！</p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -251,16 +254,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E9%BB%98%E8%AE%A4%E7%9A%84%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E8%AE%BF%E9%97%AE%E6%96%B9%E6%A1%88/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E9%BB%98%E8%AE%A4%E7%9A%84%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E8%AE%BF%E9%97%AE%E6%96%B9%E6%A1%88/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F%E8%87%AA%E5%AE%9A%E4%B9%89%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E4%BD%8D%E7%BD%AE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          SpringBoot整合Web开发---两种方式自定义静态资源位置
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E6%95%B4%E5%90%88Fastjson/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SpringBoot整合Web开发---整合Fastjson</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -280,535 +351,14 @@
 
 
 
-
-  
-    <article id="post-SpringBoot整合Web开发-整合Fastjson" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E6%95%B4%E5%90%88Fastjson/">SpringBoot整合Web开发---整合Fastjson</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E6%95%B4%E5%90%88Fastjson/" class="archive-article-date">
-  	<time datetime="2020-04-23T12:43:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Gson和Json在springboot中都有自动化配置的依赖，FastJson没有，需要自己来配置Converter。</p>
-        
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E6%95%B4%E5%90%88Fastjson/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E6%95%B4%E5%90%88Fastjson/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SpringBoot整合Web开发-使用-Gson-处理-JSON" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E4%BD%BF%E7%94%A8-Gson-%E5%A4%84%E7%90%86-JSON/">SpringBoot整合Web开发---使用 Gson 处理 JSON</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E4%BD%BF%E7%94%A8-Gson-%E5%A4%84%E7%90%86-JSON/" class="archive-article-date">
-  	<time datetime="2020-04-23T12:41:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="主题：Gson与SpringBoot的整合"><a href="#主题：Gson与SpringBoot的整合" class="headerlink" title="主题：Gson与SpringBoot的整合"></a>主题：Gson与SpringBoot的整合</h4>
-        
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E4%BD%BF%E7%94%A8-Gson-%E5%A4%84%E7%90%86-JSON/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-%E4%BD%BF%E7%94%A8-Gson-%E5%A4%84%E7%90%86-JSON/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SpringBoot整合Web开发-SpringBoot默认的-JSON-解析方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-SpringBoot%E9%BB%98%E8%AE%A4%E7%9A%84-JSON-%E8%A7%A3%E6%9E%90%E6%96%B9%E6%A1%88/">SpringBoot整合Web开发---SpringBoot默认的 JSON 解析方案</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-SpringBoot%E9%BB%98%E8%AE%A4%E7%9A%84-JSON-%E8%A7%A3%E6%9E%90%E6%96%B9%E6%A1%88/" class="archive-article-date">
-  	<time datetime="2020-04-23T12:40:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>主题：在SpringBoot中如何返回Json数据。</p>
-</li>
-<li>
-        
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-SpringBoot%E9%BB%98%E8%AE%A4%E7%9A%84-JSON-%E8%A7%A3%E6%9E%90%E6%96%B9%E6%A1%88/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88Web%E5%BC%80%E5%8F%91-SpringBoot%E9%BB%98%E8%AE%A4%E7%9A%84-JSON-%E8%A7%A3%E6%9E%90%E6%96%B9%E6%A1%88/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SpringBoot整合视图层技术-Freemarker" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88%E8%A7%86%E5%9B%BE%E5%B1%82%E6%8A%80%E6%9C%AF-Freemarker/">SpringBoot整合视图层技术---Freemarker</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88%E8%A7%86%E5%9B%BE%E5%B1%82%E6%8A%80%E6%9C%AF-Freemarker/" class="archive-article-date">
-  	<time datetime="2020-04-23T12:39:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Freemarker</p>
-        
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88%E8%A7%86%E5%9B%BE%E5%B1%82%E6%8A%80%E6%9C%AF-Freemarker/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E6%95%B4%E5%90%88%E8%A7%86%E5%9B%BE%E5%B1%82%E6%8A%80%E6%9C%AF-Freemarker/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SpringBoot基础配置-Profile" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-Profile/">SpringBoot基础配置---Profile</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-Profile/" class="archive-article-date">
-  	<time datetime="2020-04-23T12:38:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>前言：开发有开发环境，测试有测试环境，每个环境中连接可能不太一样。例如数据库，开发完以后上测试，需要修改数据库信息。测试完部署，还需要修改数据库信息。除此之外还有Radis、mangodb等一堆配置，每次都要修改。Spring中可以通过Profile解决问题，Profile是条件注解的一个特殊化。SpringBoot对此做了继承，并且简化了。</p>
-        
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-Profile/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-Profile/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SpringBoot基础配置-YML配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-YML%E9%85%8D%E7%BD%AE/">SpringBoot基础配置---YML配置</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-YML%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-  	<time datetime="2020-04-23T12:37:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>前言：properties配置有一点臃肿，目前在SpringBoot中流行yaml配置</p>
-        
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-YML%E9%85%8D%E7%BD%AE/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-YML%E9%85%8D%E7%BD%AE/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SpringBoot基础配置-类型安全的属性注入" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-%E7%B1%BB%E5%9E%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%B1%9E%E6%80%A7%E6%B3%A8%E5%85%A5/">SpringBoot基础配置---类型安全的属性注入</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-%E7%B1%BB%E5%9E%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%B1%9E%E6%80%A7%E6%B3%A8%E5%85%A5/" class="archive-article-date">
-  	<time datetime="2020-04-23T12:36:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>前言：上一节中的注入均为Spring提供，这一部分将体现SpringBoot的价值所在—类型安全的属性注入。</p>
-        
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-%E7%B1%BB%E5%9E%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%B1%9E%E6%80%A7%E6%B3%A8%E5%85%A5/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-%E7%B1%BB%E5%9E%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%B1%9E%E6%80%A7%E6%B3%A8%E5%85%A5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SpringBoot基础配置-Spring属性注入" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-Spring%E5%B1%9E%E6%80%A7%E6%B3%A8%E5%85%A5/">SpringBoot基础配置---Spring属性注入</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-Spring%E5%B1%9E%E6%80%A7%E6%B3%A8%E5%85%A5/" class="archive-article-date">
-  	<time datetime="2020-04-23T12:34:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>前言：Spring里面是有属性注入的，例如数据库的配置。一般数据库配置不会写在XML里面，而是做一个DB.properties文件，在里面定义用户的用户名、密码、连接地址等信息，定义好再用XML引入信息。这是一个在XML中做属性注入的例子。除了XML，也可以在JAVA代码中做。</p>
-        
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-Spring%E5%B1%9E%E6%80%A7%E6%B3%A8%E5%85%A5/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/SpringBoot%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE-Spring%E5%B1%9E%E6%80%A7%E6%B3%A8%E5%85%A5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -831,8 +381,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
